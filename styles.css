@@ -1011,4 +1011,24 @@ body {
   .form-grid {
     grid-template-columns: 1fr;
   }
+}/* Form success / error messages */
+.form-success {
+  margin-top: 1rem;
+  padding: 1rem 1.1rem;
+  border-radius: 6px;
+  background: rgba(255, 252, 246, 0.95);
+  border: 1px solid rgba(126, 95, 66, 0.35);
+  color: #2c2c2c;
+  font-weight: 600;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+
+.form-error {
+  margin-top: 1rem;
+  padding: 1rem 1.1rem;
+  border-radius: 6px;
+  background: #fff5f5;
+  border: 1px solid #e0b4b4;
+  color: #7a1f1f;
+  font-weight: 600;
 }
