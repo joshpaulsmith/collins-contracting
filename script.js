@@ -53,6 +53,60 @@ if (navToggle && siteNav) {
 }
 
 /* =========================
+   CONTENT REVEAL ANIMATIONS
+========================= */
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!prefersReducedMotion) {
+  const revealSelectors = [
+    '.page-hero .container',
+    '.hero .container > *',
+    '.panel',
+    '.service-card',
+    '.stat',
+    '.portfolio-card',
+    '.contact-card',
+    '.quote-box',
+    '.hero-card',
+    '.hero-badge',
+    '.contact-form',
+    '.contact-item',
+    '.info-list li',
+    '.cta-row',
+    '.footer-inner'
+  ];
+
+  const revealElements = document.querySelectorAll(revealSelectors.join(', '));
+
+  revealElements.forEach((el, index) => {
+    el.classList.add('reveal-on-scroll');
+    el.style.transitionDelay = `${Math.min(index % 6, 5) * 70}ms`;
+  });
+
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-revealed');
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin: '0px 0px -8% 0px'
+    }
+  );
+
+  revealElements.forEach((el) => revealObserver.observe(el));
+} else {
+  document.querySelectorAll(
+    '.page-hero .container, .hero .container > *, .panel, .service-card, .stat, .portfolio-card, .contact-card, .quote-box, .hero-card, .hero-badge, .contact-form, .contact-item, .info-list li, .cta-row, .footer-inner'
+  ).forEach((el) => {
+    el.classList.add('is-revealed');
+  });
+}
+
+/* =========================
    CONTACT FORM SUBMISSION
 ========================= */
 const contactForm = document.getElementById('contact-form');
