@@ -53,7 +53,7 @@ if (navToggle && siteNav) {
 }
 
 /* =========================
-   CONTENT REVEAL ANIMATIONS
+   SUBTLE CONTENT FADE-IN
 ========================= */
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -72,37 +72,36 @@ if (!prefersReducedMotion) {
     '.contact-form',
     '.contact-item',
     '.info-list li',
-    '.cta-row',
-    '.footer-inner'
+    '.cta-row'
   ];
 
   const revealElements = document.querySelectorAll(revealSelectors.join(', '));
 
-  revealElements.forEach((el, index) => {
-    el.classList.add('reveal-on-scroll');
-    el.style.transitionDelay = `${Math.min(index % 6, 5) * 70}ms`;
+  revealElements.forEach((el) => {
+    el.classList.add('fade-in-soft');
   });
 
   const revealObserver = new IntersectionObserver(
     (entries, observer) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-revealed');
+
+        entry.target.classList.add('is-visible');
         observer.unobserve(entry.target);
       });
     },
     {
-      threshold: 0.12,
-      rootMargin: '0px 0px -8% 0px'
+      threshold: 0.01,
+      rootMargin: '0px 0px 120px 0px'
     }
   );
 
   revealElements.forEach((el) => revealObserver.observe(el));
 } else {
   document.querySelectorAll(
-    '.page-hero .container, .hero .container > *, .panel, .service-card, .stat, .portfolio-card, .contact-card, .quote-box, .hero-card, .hero-badge, .contact-form, .contact-item, .info-list li, .cta-row, .footer-inner'
+    '.page-hero .container, .hero .container > *, .panel, .service-card, .stat, .portfolio-card, .contact-card, .quote-box, .hero-card, .hero-badge, .contact-form, .contact-item, .info-list li, .cta-row'
   ).forEach((el) => {
-    el.classList.add('is-revealed');
+    el.classList.add('is-visible');
   });
 }
 
