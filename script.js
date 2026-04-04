@@ -2,27 +2,44 @@ const navToggle = document.querySelector('.nav-toggle');
 const siteNav = document.querySelector('.site-nav');
 
 if (navToggle && siteNav) {
-navToggle.addEventListener('click', () => {
-const isOpen = siteNav.classList.toggle('open');
-navToggle.setAttribute('aria-expanded', String(isOpen));
-navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-});
+  const mobileBreakpoint = 760;
 
-// Close menu when clicking a link
-document.querySelectorAll('.site-nav a').forEach(link => {
-link.addEventListener('click', () => {
-siteNav.classList.remove('open');
-navToggle.setAttribute('aria-expanded', 'false');
-navToggle.setAttribute('aria-label', 'Open menu');
-});
-});
+  const setMenuState = (open) => {
+    siteNav.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.classList.toggle('menu-open', open);
+  };
 
-// Close menu if clicking outside
-document.addEventListener('click', (e) => {
-if (!siteNav.contains(e.target) && !navToggle.contains(e.target)) {
-siteNav.classList.remove('open');
-navToggle.setAttribute('aria-expanded', 'false');
-navToggle.setAttribute('aria-label', 'Open menu');
-}
-});
+  const isMenuOpen = () => siteNav.classList.contains('open');
+
+  navToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setMenuState(!isMenuOpen());
+  });
+
+  document.querySelectorAll('.site-nav a').forEach((link) => {
+    link.addEventListener('click', () => {
+      setMenuState(false);
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!siteNav.contains(e.target) && !navToggle.contains(e.target)) {
+      setMenuState(false);
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isMenuOpen()) {
+      setMenuState(false);
+      navToggle.focus();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > mobileBreakpoint && isMenuOpen()) {
+      setMenuState(false);
+    }
+  });
 }
