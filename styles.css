@@ -1135,4 +1135,16 @@ a {
   box-shadow:
     inset 0 0 0 1px rgba(255,255,255,0.05),
     0 12px 24px rgba(0,0,0,0.24);
+}/* Desktop */
+body {
+  background-size: cover;
+  background-position: center;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  body {
+    background-size: 140%;
+    background-position: center top;
+  }
 }
