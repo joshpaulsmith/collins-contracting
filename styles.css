@@ -1031,4 +1031,53 @@ body {
   border: 1px solid #e0b4b4;
   color: #7a1f1f;
   font-weight: 600;
+}/* JS animation helpers */
+.nav-toggle.is-pressed {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.nav-toggle.is-active {
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.button.is-loading {
+  opacity: 0.85;
+  cursor: wait;
+}
+
+.form-success,
+.form-error,
+.form-status-note {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.form-success.is-visible,
+.form-error.is-visible,
+.form-status-note.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.field-error-animate {
+  animation: fieldPulse 0.35s ease;
+}
+
+@keyframes fieldPulse {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
