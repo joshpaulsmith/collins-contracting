@@ -42,7 +42,7 @@ body {
   margin: 0;
   font-family: "Source Sans 3", sans-serif;
   background:
-    linear-gradient(rgba(47, 66, 55, 0.75), rgba(47, 66, 55, 0.75)),
+    linear-gradient(rgba(47, 66, 55, 0.80), rgba(47, 66, 55, 0.80)),
     url("background.jpg");
   background-size: cover;
   background-position: center;
