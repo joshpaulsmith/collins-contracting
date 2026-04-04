@@ -1147,4 +1147,22 @@ body {
     background-size: 140%;
     background-position: center top;
   }
+}/* =========================
+   BACKGROUND IMAGE BEHAVIOR
+========================= */
+
+/* Desktop */
+body {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Mobile - repeat texture instead of zoom */
+@media (max-width: 768px) {
+  body {
+    background-size: 500px;   /* size of the repeating texture */
+    background-repeat: repeat;
+    background-position: top left;
+  }
 }
