@@ -478,19 +478,60 @@ a {
   margin-bottom: 1.4rem;
 }
 
+/* Default: light-panel headings should be dark */
 .section-header h2 {
   margin: 0;
   font-size: clamp(1.85rem, 4vw, 3rem);
   line-height: 1;
   letter-spacing: -0.03em;
-  color: #ffffff;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.12);
+  color: var(--text);
+  text-shadow: none;
 }
 
 .section-header p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--muted);
   max-width: 48ch;
+}
+
+/* Only top-level dark-background section headers should be white */
+.section > .container > .section-header h2 {
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.12);
+}
+
+.section > .container > .section-header p {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* Explicit fixes for headings inside light cards/panels */
+.panel .section-header h2,
+.hero-card .section-header h2,
+.service-card .section-header h2,
+.stat .section-header h2,
+.contact-card .section-header h2,
+.portfolio-card .section-header h2 {
+  color: var(--text);
+  text-shadow: none;
+}
+
+.panel .section-header p,
+.hero-card .section-header p,
+.service-card .section-header p,
+.stat .section-header p,
+.contact-card .section-header p,
+.portfolio-card .section-header p {
+  color: var(--muted);
+}
+
+/* Catch direct h2s inside light holders */
+.panel h2,
+.service-card h2,
+.stat h2,
+.contact-card h2,
+.portfolio-card h2 {
+  color: var(--text);
+  text-shadow: none;
 }
 
 .grid-3,
