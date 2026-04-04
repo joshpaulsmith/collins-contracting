@@ -63,10 +63,6 @@
     <div class="container header-inner">
       <a class="brand" href="/" aria-label="Collins Contracting home">
         <img src="/logo.png" alt="Collins Contracting logo" />
-        <span class="brand-text">
-          <span class="brand-title">Collins</span>
-          <span class="brand-subtitle">Contracting</span>
-        </span>
       </a>
 
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
@@ -104,27 +100,69 @@
             Collins Contracting provides hands-on, detail-driven service with a focus on craftsmanship, communication, and personalized results for each project.
           </p>
 
-          <div class="contact-list">
-            <div class="contact-item">
-              <span class="contact-label">Phone</span>
-              <a href="tel:7052576532">705-257-6532</a>
+          <form id="contact-form" class="contact-form">
+            <input type="hidden" name="_subject" value="New Collins Contracting Website Inquiry" />
+            <input type="hidden" name="_captcha" value="false" />
+
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required />
+              </div>
+
+              <div class="form-field">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" />
+              </div>
             </div>
 
-            <div class="contact-item">
-              <span class="contact-label">Email</span>
-              <a href="mailto:jamescollins@live.ca">jamescollins@live.ca</a>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required />
+              </div>
+
+              <div class="form-field">
+                <label for="location">Project Location</label>
+                <input id="location" name="location" type="text" />
+              </div>
             </div>
 
-            <div class="contact-item">
-              <span class="contact-label">Service Area</span>
-              <span>Sault Ste. Marie and surrounding areas</span>
+            <div class="form-field">
+              <label for="projectType">Project Type</label>
+              <input
+                id="projectType"
+                name="project_type"
+                type="text"
+                placeholder="Carpentry, painting, interior finishing, repair, etc."
+              />
             </div>
 
-            <div class="contact-item">
-              <span class="contact-label">Preferred contact methods</span>
-              <span>Phone or email</span>
+            <div class="form-field">
+              <label for="timeline">Timeline</label>
+              <input
+                id="timeline"
+                name="timeline"
+                type="text"
+                placeholder="As soon as possible, next month, flexible, etc."
+              />
             </div>
-          </div>
+
+            <div class="form-field">
+              <label for="message">Project Details</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                required
+                placeholder="Tell us about the work you need done, dimensions, finishes, photos available, and anything else that helps."
+              ></textarea>
+            </div>
+
+            <button class="button" type="submit">Send Request</button>
+
+            <p id="form-status" class="form-status" aria-live="polite"></p>
+          </form>
 
           <div class="quote-box">
             <p>Clear communication, practical recommendations, and workmanship built around the finished result.</p>
@@ -168,12 +206,12 @@
           </article>
 
           <article class="service-card">
-            <h3>Location & timing</h3>
+            <h3>Location &amp; timing</h3>
             <p>Share the general property location and your preferred timeline or target completion date.</p>
           </article>
 
           <article class="service-card">
-            <h3>Photos & details</h3>
+            <h3>Photos &amp; details</h3>
             <p>Photos, measurements, inspiration, and finish preferences can help speed up planning and quoting.</p>
           </article>
         </div>
