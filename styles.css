@@ -1076,4 +1076,35 @@ a {
     opacity: 1;
     transition: none;
   }
+}/* =========================
+   FEATURE BOXES (DARK VERSION)
+========================= */
+.feature-grid {
+  margin-top: 30px;
+}
+
+.feature-card {
+  background: #3e4a3f; /* dark green/grey to match your background */
+  color: #f4f1ea;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Headings inside dark cards */
+.feature-card h3 {
+  color: #ffffff;
+}
+
+/* Paragraph text inside dark cards */
+.feature-card p {
+  color: rgba(255,255,255,0.85);
+}
+
+/* Subtle hover effect */
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.25);
 }
