@@ -191,4 +191,68 @@ if (contactForm && formStatus) {
       setButtonLoading(false);
     }
   });
-}
+}// Lightbox
+(function () {
+  const lightbox = document.getElementById("lightbox");
+  if (!lightbox) return;
+
+  const lightboxImage = lightbox.querySelector(".lightbox-image");
+  const closeButton = lightbox.querySelector(".lightbox-close");
+  const backdrop = lightbox.querySelector(".lightbox-backdrop");
+  const triggers = document.querySelectorAll(".gallery-trigger");
+
+  function openLightbox(src, alt) {
+    lightboxImage.src = src;
+    lightboxImage.alt = alt || "";
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("lightbox-open");
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("lightbox-open");
+    setTimeout(() => {
+      lightboxImage.src = "";
+      lightboxImage.alt = "";
+    }, 200);
+  }
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      openLightbox(trigger.dataset.full, trigger.dataset.alt);
+    });
+  });
+
+  closeButton.addEventListener("click", closeLightbox);
+  backdrop.addEventListener("click", closeLightbox);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+      closeLightbox();
+    }
+  });
+})();
+
+// Before / After slider
+(function () {
+  const sliders = document.querySelectorAll("[data-before-after]");
+
+  sliders.forEach((slider) => {
+    const range = slider.querySelector("[data-before-range]");
+    const beforeLayer = slider.querySelector("[data-before-layer]");
+    const divider = slider.querySelector("[data-before-divider]");
+
+    if (!range || !beforeLayer || !divider) return;
+
+    function updateSlider() {
+      const value = `${range.value}%`;
+      beforeLayer.style.width = value;
+      divider.style.left = value;
+    }
+
+    range.addEventListener("input", updateSlider);
+    updateSlider();
+  });
+})();
