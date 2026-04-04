@@ -16,8 +16,8 @@
 --shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
 --shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.05);
 
---radius: 24px;
---radius-sm: 16px;
+--radius: 6px;
+--radius-sm: 4px;
 --max: 1180px;
 }
 
@@ -733,4 +733,48 @@ padding-top: 2.25rem;
 font-size: 0.68rem;
 letter-spacing: 0.14em;
 }
+}/* Make design more square / contractor style */
+.hero-card,
+.panel,
+.service-card,
+.stat,
+.contact-card,
+.portfolio-card,
+.site-nav,
+.button,
+.button-outline,
+.info-list li,
+.contact-item,
+.hero-card-inner {
+  border-radius: 6px !important;
+}
+
+/* Remove pill nav */
+.site-nav a {
+  border-radius: 4px;
+}
+
+/* Make buttons square */
+.button,
+.button-outline {
+  border-radius: 4px;
+}
+
+/* Make header logo square background */
+.brand img {
+  border-radius: 4px;
+}
+
+/* Slightly stronger borders for construction feel */
+.service-card,
+.portfolio-card,
+.contact-card,
+.panel {
+  border: 1px solid #bfbfc6;
+}
+
+/* Make sections stand out more */
+.section:nth-child(even) {
+  background: #efeff1;
+  padding: 3rem 0;
 }
