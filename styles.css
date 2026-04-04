@@ -777,4 +777,19 @@ letter-spacing: 0.14em;
 .section:nth-child(even) {
   background: #efeff1;
   padding: 3rem 0;
+}.site-credit {
+  margin-top: 0.45rem;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.site-credit a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.site-credit a:hover {
+  text-decoration: underline;
 }
