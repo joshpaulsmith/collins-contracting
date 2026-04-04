@@ -494,17 +494,18 @@ a {
   max-width: 48ch;
 }
 
-/* Only top-level dark-background section headers should be white */
-.section > .container > .section-header h2 {
+/* White only for headers sitting directly on the green background */
+.section > .container:not(.panel):not(.hero-card):not(.service-card):not(.stat):not(.contact-card):not(.portfolio-card) > .section-header h2 {
   color: #ffffff;
   text-shadow: 0 2px 10px rgba(0,0,0,0.12);
 }
 
-.section > .container > .section-header p {
+.section > .container:not(.panel):not(.hero-card):not(.service-card):not(.stat):not(.contact-card):not(.portfolio-card) > .section-header p {
   color: rgba(255, 255, 255, 0.82);
 }
 
-/* Explicit fixes for headings inside light cards/panels */
+/* Force dark text inside light boxed containers */
+.section > .container.panel > .section-header h2,
 .panel .section-header h2,
 .hero-card .section-header h2,
 .service-card .section-header h2,
@@ -515,6 +516,7 @@ a {
   text-shadow: none;
 }
 
+.section > .container.panel > .section-header p,
 .panel .section-header p,
 .hero-card .section-header p,
 .service-card .section-header p,
