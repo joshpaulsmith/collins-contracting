@@ -1695,4 +1695,25 @@ body.lightbox-open {
   .google-proof-inner {
     grid-template-columns: 1fr;
   }
+}/* =========================
+   GOOGLE LOGO IMAGE FIX
+========================= */
+
+.google-badge img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.google-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.google-badge > div {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
 }
