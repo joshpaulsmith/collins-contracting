@@ -1716,4 +1716,110 @@ body.lightbox-open {
   display: flex;
   flex-direction: column;
   line-height: 1.15;
+}/* =========================
+   GOOGLE SECTION POLISH
+========================= */
+
+.google-proof {
+  padding: 1.2rem 0 2.6rem;
+}
+
+.google-proof-inner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2.25rem;
+  align-items: start;
+}
+
+.google-proof-left h2 {
+  margin: 1rem 0 1rem;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 1.05;
+  max-width: 10ch;
+  color: #fff;
+}
+
+.google-proof-left p {
+  margin: 0;
+  max-width: 34rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.86);
+}
+
+.google-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.96);
+  color: #171717;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.google-badge img {
+  width: 90px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+.google-badge strong {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.1;
+}
+
+.google-badge span {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  color: #333;
+}
+
+.google-proof-right {
+  display: grid;
+  gap: 1rem;
+  padding-top: 1.6rem;
+}
+
+.google-review {
+  padding: 1.4rem 1.5rem;
+  min-height: auto;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.96);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.12);
+}
+
+.google-review p {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: #1f1f1f;
+}
+
+.google-proof .cta-row {
+  margin-top: 1.5rem;
+}
+
+.google-proof .button {
+  min-width: 230px;
+}
+
+@media (max-width: 980px) {
+  .google-proof-inner {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+  .google-proof-left h2 {
+    max-width: 100%;
+  }
+
+  .google-proof-right {
+    padding-top: 0;
+  }
 }
