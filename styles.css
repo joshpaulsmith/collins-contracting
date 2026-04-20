@@ -687,6 +687,17 @@ a {
   gap: 0.8rem;
 }
 
+.portfolio-preview-card {
+  overflow: hidden;
+}
+
+.portfolio-preview-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
 /* Contact form */
 .contact-form {
   margin-top: 1.2rem;
@@ -744,6 +755,12 @@ a {
   margin: 0.85rem 0 0;
   font-weight: 700;
   color: #4a4036;
+}
+
+.form-note {
+  margin: 0.8rem 0 0;
+  font-size: 0.95rem;
+  color: var(--muted);
 }
 
 .form-success {
