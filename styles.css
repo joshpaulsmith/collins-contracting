@@ -693,7 +693,7 @@ a {
 
 .portfolio-preview-card img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: clamp(180px, 22vw, 260px);
   object-fit: cover;
   border-radius: 6px;
 }
