@@ -36,8 +36,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Source+Sans+3:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="/background.jpg" />
+  <link rel="preload" as="image" href="/hero.jpg" />
 
-  <link rel="stylesheet" href="styles.css?v=20260420-preview-fix" />
+  <link rel="stylesheet" href="styles.css?v=20260421-pass4" />
 
   <script type="application/ld+json">
   {
@@ -98,6 +100,46 @@
     "description": "Collins Contracting provides carpentry, painting, custom building, and interior finishing services in Sault Ste. Marie and surrounding areas."
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What kinds of home projects does Collins Contracting take on?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Collins Contracting takes on residential carpentry, interior painting, basement updates, finish work, repairs, custom details, and other interior improvement projects in Sault Ste. Marie and nearby areas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide estimates in Sault Ste. Marie and surrounding communities?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Collins Contracting provides free estimates for homeowners in Sault Ste. Marie and surrounding communities across the Algoma area."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I send photos and project details before you quote the job?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Photos, room dimensions, finish ideas, and timing details all help when reviewing a project and planning the next step."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How should I get in touch about a project?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can request a quote through the contact form, call 705-257-6532, or email jamescollins@live.ca to discuss the work."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -127,13 +169,13 @@
             Collins Contracting is a contractor in Sault Ste. Marie focused on high-quality carpentry, painting, custom building, and interior finishing. With decades of combined experience in skilled trades and design-minded work, every project is completed with care, precision, and a personalized approach.
           </p>
           <div class="hero-actions">
-            <a class="button" href="/contact/">Request a Quote</a>
-            <a class="button-outline" href="/portfolio/">View Our Work</a>
+            <a class="button" href="/contact/" data-track="hero_quote">Request a Quote</a>
+            <a class="button-outline" href="/portfolio/" data-track="hero_portfolio">View Our Work</a>
           </div>
         </div>
 
         <div class="hero-logo-wrap hero-photo-wrap">
-          <img src="hero.jpg" width="1600" height="1066" alt="Collins Contracting cutting lumber on site in Sault Ste. Marie" />
+          <img src="hero.jpg" width="1600" height="1066" alt="Collins Contracting cutting lumber on site in Sault Ste. Marie" loading="eager" decoding="async" fetchpriority="high" />
         </div>
 
         <div class="hero-card-copy">
@@ -175,7 +217,7 @@
       </p>
 
       <div class="cta-row">
-        <a class="button" href="https://share.google/bf67t1m7oyerwP7RF" target="_blank" rel="noopener noreferrer">
+        <a class="button" href="https://share.google/bf67t1m7oyerwP7RF" target="_blank" rel="noopener noreferrer" data-track="google_reviews">
           View Google Reviews
         </a>
       </div>
@@ -221,6 +263,34 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container panel">
+    <div class="section-header">
+      <div>
+        <h2>Local residential work, built around the way the home is used</h2>
+      </div>
+      <p>
+        Many of the projects we take on in Sault Ste. Marie start with practical goals: refresh an older room, finish a basement, improve trim and paintwork, or clean up the details that make a space feel complete.
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <article class="service-card">
+        <h3>Basements and lower levels</h3>
+        <p>Finishing details, flooring updates, trim work, and improvements that make underused space feel more complete and more comfortable.</p>
+      </article>
+      <article class="service-card">
+        <h3>Main floor refreshes</h3>
+        <p>Painting, repairs, finish carpentry, and custom touches that improve the look of everyday living spaces without losing function.</p>
+      </article>
+      <article class="service-card">
+        <h3>Interior repairs and finishing</h3>
+        <p>Small-to-mid-size projects that need a reliable hand, clean workmanship, and a finished result that fits the rest of the home.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
     <section class="section">
       <div class="container">
         <div class="section-header">
@@ -251,7 +321,7 @@
         </div>
 
         <div class="cta-row">
-          <a class="button-outline" href="/portfolio/">View Portfolio</a>
+          <a class="button-outline" href="/portfolio/" data-track="preview_portfolio">View Portfolio</a>
         </div>
       </div>
     </section>
@@ -326,6 +396,38 @@
         <div class="cta-row">
           <a class="button" href="tel:7052576532">Call 705-257-6532</a>
           <a class="button-outline" href="mailto:jamescollins@live.ca">Email James</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container panel">
+        <div class="section-header">
+          <div>
+            <h2>Questions homeowners ask before getting started</h2>
+          </div>
+          <p>
+            A few quick answers for homeowners planning carpentry, painting, finishing, or repair work in Sault Ste. Marie.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>What kind of jobs are a good fit for Collins Contracting?</summary>
+            <p>Residential carpentry, painting, basement updates, finishing work, repairs, and custom interior details are all a strong fit.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you work only in Sault Ste. Marie?</summary>
+            <p>Most work is centered in Sault Ste. Marie, with estimates and projects available for nearby communities in the surrounding area as well.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What helps when requesting a quote?</summary>
+            <p>Photos, room dimensions, a rough timeline, and a short description of the finish or outcome you want all make the quote process easier.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I call instead of using the form?</summary>
+            <p>Yes. You can call 705-257-6532 directly if you would rather talk through the project first.</p>
+          </details>
         </div>
       </div>
     </section>

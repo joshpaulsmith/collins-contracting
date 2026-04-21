@@ -1,3 +1,24 @@
+const trackEvent = (name, payload = {}) => {
+  const eventPayload = {
+    event: name,
+    page: window.location.pathname,
+    ...payload
+  };
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(eventPayload);
+
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', name, payload);
+  }
+
+  if (typeof window.plausible === 'function') {
+    window.plausible(name, { props: payload });
+  }
+
+  window.dispatchEvent(new CustomEvent('site-track', { detail: eventPayload }));
+};
+
 /* =========================
    MOBILE NAVIGATION
 ========================= */
@@ -114,6 +135,7 @@ const formStatus = document.getElementById('form-status');
 if (contactForm && formStatus) {
   const submitButton = contactForm.querySelector('button[type="submit"]');
   const formFields = contactForm.querySelectorAll('input, textarea');
+  const nextUrl = contactForm.querySelector('input[name="_next"]')?.value;
 
   const setButtonLoading = (loading) => {
     if (!submitButton) return;
@@ -168,7 +190,14 @@ if (contactForm && formStatus) {
       });
 
       if (response.ok) {
+        trackEvent('lead_form_submit', {
+          form_id: 'contact-form'
+        });
         contactForm.reset();
+        if (nextUrl) {
+          window.location.assign(nextUrl);
+          return;
+        }
 
         showStatus(
           'form-success',
@@ -191,7 +220,33 @@ if (contactForm && formStatus) {
       setButtonLoading(false);
     }
   });
-}// Lightbox
+}
+
+document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
+  link.addEventListener('click', () => {
+    trackEvent('phone_click', {
+      label: link.textContent.trim() || link.getAttribute('href')
+    });
+  });
+});
+
+document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+  link.addEventListener('click', () => {
+    trackEvent('email_click', {
+      label: link.textContent.trim() || link.getAttribute('href')
+    });
+  });
+});
+
+document.querySelectorAll('[data-track]').forEach((element) => {
+  element.addEventListener('click', () => {
+    trackEvent('cta_click', {
+      label: element.dataset.track
+    });
+  });
+});
+
+// Lightbox
 (function () {
   const lightbox = document.getElementById("lightbox");
   if (!lightbox) return;
@@ -221,6 +276,9 @@ if (contactForm && formStatus) {
 
   triggers.forEach((trigger) => {
     trigger.addEventListener("click", () => {
+      trackEvent('portfolio_image_open', {
+        image: trigger.dataset.full || ''
+      });
       openLightbox(trigger.dataset.full, trigger.dataset.alt);
     });
   });

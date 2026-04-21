@@ -36,8 +36,29 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Source+Sans+3:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="/background.jpg" />
 
-  <link rel="stylesheet" href="/styles.css?v=20260420-preview-fix" />
+  <link rel="stylesheet" href="/styles.css?v=20260421-pass4" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://buildwithcollins.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact",
+        "item": "https://buildwithcollins.com/contact/"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -64,7 +85,7 @@
         <span class="kicker">Start your project</span>
         <h1>Request a Quote for Your Home Project</h1>
         <p>
-          Tell us about the carpentry, painting, repair, custom building, or interior finishing work you need done in Sault Ste. Marie or the surrounding area.
+          Tell us about the carpentry, painting, repair, custom building, or interior finishing work you need done in Sault Ste. Marie or the surrounding area. If you already have photos, measurements, or finish ideas, include those details and we can review the project faster.
         </p>
       </div>
     </section>
@@ -107,6 +128,7 @@
           <form id="contact-form" class="contact-form" action="https://formsubmit.co/jamescollins@live.ca" method="POST">
             <input type="hidden" name="_subject" value="New Collins Contracting Website Inquiry" />
             <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://buildwithcollins.com/contact/thanks/" />
             <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="sr-only" aria-hidden="true" />
 
             <div class="form-grid">
@@ -164,7 +186,7 @@
               ></textarea>
             </div>
 
-            <button class="button" type="submit">Send Request</button>
+            <button class="button" type="submit" data-track="contact_submit">Send Request</button>
             <p id="form-status" class="form-status" aria-live="polite"></p>
             <p class="form-note">Your project details are only used to review the work and respond to your inquiry.</p>
           </form>
