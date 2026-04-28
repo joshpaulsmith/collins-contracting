@@ -135,7 +135,9 @@ const formStatus = document.getElementById('form-status');
 if (contactForm && formStatus) {
   const submitButton = contactForm.querySelector('button[type="submit"]');
   const formFields = contactForm.querySelectorAll('input, textarea');
+  const attachmentInput = contactForm.querySelector('input[type="file"]');
   const nextUrl = contactForm.querySelector('input[name="_next"]')?.value;
+  const maxAttachmentBytes = 10 * 1024 * 1024;
 
   const setButtonLoading = (loading) => {
     if (!submitButton) return;
@@ -172,6 +174,19 @@ if (contactForm && formStatus) {
 
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    if (attachmentInput?.files?.length) {
+      const totalAttachmentSize = Array.from(attachmentInput.files).reduce((sum, file) => sum + file.size, 0);
+
+      if (totalAttachmentSize > maxAttachmentBytes) {
+        animateFieldsOnError();
+        showStatus(
+          'form-error',
+          'Attached images need to stay under 10MB total. Please choose a smaller file and try again.'
+        );
+        return;
+      }
+    }
 
     setButtonLoading(true);
     formStatus.innerHTML = `

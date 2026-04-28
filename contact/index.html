@@ -125,7 +125,7 @@
             <p>Please include as much detail as possible so we can provide accurate information.</p>
           </div>
 
-          <form id="contact-form" class="contact-form" action="https://formsubmit.co/jamescollins@live.ca" method="POST">
+          <form id="contact-form" class="contact-form" action="https://formsubmit.co/jamescollins@live.ca" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_subject" value="New Collins Contracting Website Inquiry" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_next" value="https://buildwithcollins.com/contact/thanks/" />
@@ -186,6 +186,12 @@
               ></textarea>
             </div>
 
+            <div class="form-field">
+              <label for="attachment">Project Photos</label>
+              <input id="attachment" name="attachment" type="file" accept="image/*" />
+              <p class="field-help">Optional. Attach a photo of the area or issue to help with quoting. Total upload size must stay under 10MB.</p>
+            </div>
+
             <button class="button" type="submit" data-track="contact_submit">Send Request</button>
             <p id="form-status" class="form-status" aria-live="polite"></p>
             <p class="form-note">Your project details are only used to review the work and respond to your inquiry.</p>
@@ -208,7 +214,7 @@
           </li>
           <li>
             <strong>Photos and measurements</strong>
-            If you have photos, dimensions, or finish ideas, mention that in the message and we can follow up.
+            If you have photos, dimensions, or finish ideas, include them with the form or mention that in the message and we can follow up.
           </li>
           <li>
             <strong>Type of work</strong>
