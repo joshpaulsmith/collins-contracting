@@ -7,7 +7,7 @@
   <title>Request a Quote | Collins Contracting in Sault Ste. Marie</title>
   <meta
     name="description"
-    content="Request a quote from Collins Contracting for carpentry, painting, custom building, and interior finishing in Sault Ste. Marie and surrounding areas."
+    content="Request a quote from Collins Contracting for carpentry, painting, repairs, and interior finishing in Sault Ste. Marie and surrounding areas."
   />
   <meta name="theme-color" content="#171717" />
   <meta name="robots" content="index, follow" />
@@ -16,7 +16,7 @@
   <meta property="og:title" content="Contact Collins Contracting | Sault Ste. Marie" />
   <meta
     property="og:description"
-    content="Request a quote from Collins Contracting for carpentry, painting, custom building, and interior finishing in Sault Ste. Marie."
+    content="Request a quote from Collins Contracting for carpentry, painting, repairs, and interior finishing in Sault Ste. Marie."
   />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://buildwithcollins.com/contact/" />
@@ -26,7 +26,7 @@
   <meta name="twitter:title" content="Contact Collins Contracting | Sault Ste. Marie" />
   <meta
     name="twitter:description"
-    content="Request a quote from Collins Contracting for carpentry, painting, custom building, and interior finishing in Sault Ste. Marie."
+    content="Request a quote from Collins Contracting for carpentry, painting, repairs, and interior finishing in Sault Ste. Marie."
   />
   <meta name="twitter:image" content="https://buildwithcollins.com/logo.png" />
 
@@ -85,7 +85,7 @@
         <span class="kicker">Start your project</span>
         <h1>Request a Quote for Your Home Project</h1>
         <p>
-          Tell us about the carpentry, painting, repair, custom building, or interior finishing work you need done in Sault Ste. Marie or the surrounding area. If you already have photos, measurements, or finish ideas, include those details and we can review the project faster.
+          Tell us what you need done, where the project is located, and when you would like to get started. Photos, measurements, and finish ideas are always helpful if you have them.
         </p>
       </div>
     </section>
@@ -95,22 +95,23 @@
       <div class="container panel">
         <div class="section-header">
           <h2>What Happens Next</h2>
+          <p>Once you send the form, we review the scope and follow up with the next step.</p>
         </div>
 
         <div class="process-steps">
           <div class="step">
-            <h3>1. Submit the Form</h3>
-            <p>Tell us about your project, location, timeline, and the type of work you’re looking to have done.</p>
+            <h3>1. Send the details</h3>
+            <p>Share the kind of work you need, where it is, your timeline, and any photos or measurements you have.</p>
           </div>
 
           <div class="step">
-            <h3>2. We Review Your Project</h3>
-            <p>We’ll review the details and reach out to discuss the project, ask questions, and talk through options.</p>
+            <h3>2. We review the project</h3>
+            <p>We look over the scope, confirm any missing details, and reach out if a quick follow-up would help.</p>
           </div>
 
           <div class="step">
-            <h3>3. Quote & Next Steps</h3>
-            <p>If it’s a good fit, we’ll put together the next steps, timeline, and estimate for your project.</p>
+            <h3>3. Quote and next steps</h3>
+            <p>If the job is a fit, we will talk through timing, pricing, and what comes next.</p>
           </div>
         </div>
       </div>
@@ -122,7 +123,7 @@
         <article class="panel">
           <div class="section-header" style="margin-bottom: 1rem;">
             <h2>Project Inquiry Form</h2>
-            <p>Please include as much detail as possible so we can provide accurate information.</p>
+            <p>The more specific you can be, the easier it is to review the work and give you a useful response.</p>
           </div>
 
           <form id="contact-form" class="contact-form" action="https://formsubmit.co/jamescollins@live.ca" method="POST" enctype="multipart/form-data">
@@ -134,24 +135,24 @@
             <div class="form-grid">
               <div class="form-field">
                 <label for="name">Name</label>
-                <input id="name" name="name" type="text" required />
+                <input id="name" name="name" type="text" autocomplete="name" required />
               </div>
 
               <div class="form-field">
                 <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="tel" />
+                <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" />
               </div>
             </div>
 
             <div class="form-grid">
               <div class="form-field">
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" required />
+                <input id="email" name="email" type="email" autocomplete="email" required />
               </div>
 
               <div class="form-field">
                 <label for="location">Project Location</label>
-                <input id="location" name="location" type="text" />
+                <input id="location" name="location" type="text" autocomplete="address-level2" />
               </div>
             </div>
 
@@ -161,7 +162,7 @@
                 id="projectType"
                 name="project_type"
                 type="text"
-                placeholder="Carpentry, painting, interior finishing, repair, etc."
+                placeholder="Basement finishing, trim work, painting, repairs, built-ins, etc."
               />
             </div>
 
@@ -171,7 +172,7 @@
                 id="timeline"
                 name="timeline"
                 type="text"
-                placeholder="As soon as possible, next month, flexible, etc."
+                placeholder="As soon as possible, next month, flexible, planning ahead, etc."
               />
             </div>
 
@@ -182,19 +183,19 @@
                 name="message"
                 rows="6"
                 required
-                placeholder="Tell us about the work you need done, dimensions, finishes, photos available, and anything else that helps."
+                placeholder="Tell us what you want done, what part of the home it is in, approximate size, preferred finish, and anything else that would help us understand the job."
               ></textarea>
             </div>
 
             <div class="form-field">
               <label for="attachment">Project Photos</label>
-              <input id="attachment" name="attachment" type="file" accept="image/*" />
-              <p class="field-help">Optional. Attach a photo of the area or issue to help with quoting. Total upload size must stay under 10MB.</p>
+              <input id="attachment" name="attachment" type="file" accept="image/*" aria-describedby="attachment-help" />
+              <p id="attachment-help" class="field-help">Optional. Attach a photo of the space, damage, or area you want updated. Total upload size must stay under 10MB.</p>
             </div>
 
             <button class="button" type="submit" data-track="contact_submit">Send Request</button>
             <p id="form-status" class="form-status" aria-live="polite"></p>
-            <p class="form-note">Your project details are only used to review the work and respond to your inquiry.</p>
+            <p class="form-note">Your project details and photos are only used to review the work and respond to your inquiry.</p>
           </form>
         </article>
       </div>
@@ -204,21 +205,21 @@
       <div class="container panel">
         <div class="section-header">
           <h2>Helpful Details to Include</h2>
-          <p>A few specifics make it easier to understand the scope and recommend the right next step.</p>
+          <p>A few specifics up front make it easier to understand the scope and give you a better first response.</p>
         </div>
 
         <ul class="info-list">
           <li>
             <strong>Project location and timing</strong>
-            Include the area, preferred timing, and whether the work is urgent or flexible.
+            Include the area, your preferred timing, and whether the work is urgent or flexible.
           </li>
           <li>
             <strong>Photos and measurements</strong>
-            If you have photos, dimensions, or finish ideas, include them with the form or mention that in the message and we can follow up.
+            If you have photos, rough dimensions, sketches, or finish ideas, send them along.
           </li>
           <li>
             <strong>Type of work</strong>
-            Carpentry, painting, interior finishing, repairs, built-ins, custom details, or a mix of services.
+            Let us know whether it is carpentry, painting, interior finishing, repairs, built-ins, or a mix of work.
           </li>
         </ul>
       </div>
@@ -229,7 +230,7 @@
       <div class="container panel">
         <div class="section-header">
           <h2>Prefer to Talk Right Away?</h2>
-          <p>You can call or email directly if you’d rather discuss the project first.</p>
+          <p>If you would rather talk it through first, call or email directly.</p>
         </div>
 
         <div class="cta-row">
@@ -243,7 +244,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
-        <div>© 2026 Collins Contracting. Built around skilled labour and personalized service.</div>
+        <div>© 2026 Collins Contracting. Residential carpentry, painting, and interior finishing in Sault Ste. Marie.</div>
         <div class="site-credit">
           Website by
           <a href="https://blacksmithmedia.ca" target="_blank" rel="noopener noreferrer">Blacksmith Media</a>
