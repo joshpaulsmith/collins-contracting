@@ -547,6 +547,27 @@ a {
   padding: 1.5rem;
 }
 
+.panel-soft {
+  background: linear-gradient(180deg, #f7f3ec, #efe7db);
+}
+
+.panel-warm {
+  background: linear-gradient(180deg, #f2ece1, #e7ddcf);
+}
+
+.panel-sage {
+  background: linear-gradient(180deg, #e6ebdf, #d9e0d1);
+}
+
+.panel-soft p,
+.panel-warm p,
+.panel-sage p,
+.panel-soft li,
+.panel-warm li,
+.panel-sage li {
+  color: #554e46;
+}
+
 .split {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr);
@@ -596,6 +617,39 @@ a {
 .quote-box p {
   margin: 0;
   font-size: 1rem;
+}
+
+.process-steps {
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.step {
+  position: relative;
+  padding: 1.15rem 1.15rem 1.1rem;
+  border-radius: 6px;
+  border: 1px solid rgba(126, 95, 66, 0.22);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+}
+
+.step h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.22rem;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.step p {
+  margin: 0;
+}
+
+.step-warm {
+  background: rgba(245, 236, 224, 0.88);
+}
+
+.step-light {
+  background: rgba(255, 252, 246, 0.94);
 }
 
 .contact-grid {
