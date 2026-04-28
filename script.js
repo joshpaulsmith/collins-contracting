@@ -173,12 +173,11 @@ if (contactForm && formStatus) {
   };
 
   contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
     if (attachmentInput?.files?.length) {
       const totalAttachmentSize = Array.from(attachmentInput.files).reduce((sum, file) => sum + file.size, 0);
 
       if (totalAttachmentSize > maxAttachmentBytes) {
+        e.preventDefault();
         animateFieldsOnError();
         showStatus(
           'form-error',
@@ -186,7 +185,22 @@ if (contactForm && formStatus) {
         );
         return;
       }
+
+      setButtonLoading(true);
+      formStatus.innerHTML = `
+        <div class="form-status-note is-visible">Uploading your request...</div>
+      `;
+
+      trackEvent('lead_form_submit', {
+        form_id: 'contact-form',
+        has_attachment: true
+      });
+
+      contactForm.submit();
+      return;
     }
+
+    e.preventDefault();
 
     setButtonLoading(true);
     formStatus.innerHTML = `
@@ -206,7 +220,8 @@ if (contactForm && formStatus) {
 
       if (response.ok) {
         trackEvent('lead_form_submit', {
-          form_id: 'contact-form'
+          form_id: 'contact-form',
+          has_attachment: false
         });
         contactForm.reset();
         if (nextUrl) {
